@@ -7,7 +7,7 @@ import android.arch.persistence.room.PrimaryKey;
 public class Note {
 
     @PrimaryKey
-    private int id;
+    public int id;
 
     public String title;
     public String text;

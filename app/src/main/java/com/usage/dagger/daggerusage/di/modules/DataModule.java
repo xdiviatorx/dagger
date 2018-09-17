@@ -3,8 +3,10 @@ package com.usage.dagger.daggerusage.di.modules;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 
-import com.usage.dagger.daggerusage.data.dao.NoteDao;
 import com.usage.dagger.daggerusage.data.AppDatabase;
+import com.usage.dagger.daggerusage.data.dao.NoteDao;
+import com.usage.dagger.daggerusage.data.mappers.NoteMapper;
+import com.usage.dagger.daggerusage.data.repository.NoteRepository;
 
 import javax.inject.Singleton;
 
@@ -27,8 +29,18 @@ public class DataModule {
     }
 
     @Provides
-    @Singleton
     public NoteDao provideNoteDatabase(AppDatabase appDatabase) {
         return appDatabase.noteDao();
+    }
+
+    @Provides
+    public NoteMapper provideNoteMapper() {
+        return new NoteMapper();
+    }
+
+    @Provides
+    @Singleton
+    public NoteRepository provideNoteRepository(NoteDao noteDao, NoteMapper noteMapper) {
+        return new NoteRepository(noteDao, noteMapper);
     }
 }

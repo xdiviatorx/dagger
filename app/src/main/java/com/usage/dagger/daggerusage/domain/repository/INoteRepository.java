@@ -1,22 +1,22 @@
 package com.usage.dagger.daggerusage.domain.repository;
 
-import com.usage.dagger.daggerusage.domain.models.INote;
+import com.usage.dagger.daggerusage.domain.models.NoteModel;
 
 import java.util.List;
 
 public interface INoteRepository {
 
-    List<INote> getAll();
+    List<NoteModel> getAll();
 
-    List<INote> getOrderedByEditingDate(int offset, int limit);
+    List<NoteModel> getOrderedByEditingDate(int offset, int limit);
 
-    List<INote> getOrderedByPriority(int offset, int limit);
+    List<NoteModel> getOrderedByPriority(int offset, int limit);
 
-    List<INote> getCustomOrder(int offset, int limit);
+    List<NoteModel> getCustomOrder(int offset, int limit);
 
-    void insert(INote note);
+    void insert(NoteModel note);
 
-    void update(INote note);
+    void update(NoteModel note);
 
-    void delete(INote note);
+    void delete(NoteModel note);
 }
