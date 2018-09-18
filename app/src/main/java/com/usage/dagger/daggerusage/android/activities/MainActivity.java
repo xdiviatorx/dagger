@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.widget.Toast;
 
 import com.usage.dagger.daggerusage.R;
 import com.usage.dagger.daggerusage.android.App;
@@ -33,27 +33,30 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         App.getApp().getAppComponent().inject(this);
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+        presenter.onNewPageRequested();
+    }
+
+    @Inject
+    public void attachViewToPresenter() {
+        presenter.attachView(this);
     }
 
     @Override
     public void clearList() {
-
+        adapter.clearNotes();
     }
 
     @Override
     public void showNewNotesPage(List<NoteModel> notes) {
-
+        adapter.addNotes(notes);
+        adapter.notifyDataSetChanged();
     }
 
     @Override
     public void showError() {
-
+        Toast.makeText(this, "WTF!!!!!", Toast.LENGTH_LONG).show();
     }
 }

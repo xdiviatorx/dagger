@@ -12,9 +12,12 @@ public class NoteListPresenter implements GetNotesListUseCase.Callback {
     private NoteListView view;
     private GetNotesListUseCase getNotesListUseCase;
 
-    public NoteListPresenter(NoteListView view, GetNotesListUseCase getNotesListUseCase) {
-        this.view = view;
+    public NoteListPresenter(GetNotesListUseCase getNotesListUseCase) {
         this.getNotesListUseCase = getNotesListUseCase;
+    }
+
+    public void attachView(NoteListView view) {
+        this.view = view;
     }
 
     public void onCustomSortSelected() {

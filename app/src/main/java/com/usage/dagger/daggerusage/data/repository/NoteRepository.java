@@ -15,6 +15,16 @@ public class NoteRepository implements INoteRepository {
     public NoteRepository(NoteDao noteDao, NoteMapper noteMapper) {
         this.noteDao = noteDao;
         this.noteMapper = noteMapper;
+
+        // todo remove
+        if (noteDao.getAll().size() < 100) {
+            for (int i = 0; i < 100; ++i) {
+                NoteModel note = new NoteModel();
+                note.setTitle("Note #" + i);
+                note.setText("My awesome note's text number #" + i);
+                noteDao.insert(noteMapper.modelToEntity(note));
+            }
+        }
     }
 
     @Override

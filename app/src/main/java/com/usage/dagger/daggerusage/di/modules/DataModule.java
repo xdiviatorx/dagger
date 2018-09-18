@@ -26,7 +26,8 @@ public class DataModule {
     @Provides
     @Singleton
     public AppDatabase provideAppDatabase(Context context) {
-        return Room.databaseBuilder(context, AppDatabase.class, databaseName).build();
+        // todo remove allowance for in main thread usage
+        return Room.databaseBuilder(context, AppDatabase.class, databaseName).allowMainThreadQueries().build();
     }
 
     @Provides

@@ -2,8 +2,8 @@ package com.usage.dagger.daggerusage.android;
 
 import android.app.Application;
 
-import com.usage.dagger.daggerusage.di.DaggerAppComponent;
 import com.usage.dagger.daggerusage.di.components.AppComponent;
+import com.usage.dagger.daggerusage.di.components.DaggerAppComponent;
 import com.usage.dagger.daggerusage.di.modules.AppModule;
 import com.usage.dagger.daggerusage.di.modules.DataModule;
 import com.usage.dagger.daggerusage.domain.Const;
