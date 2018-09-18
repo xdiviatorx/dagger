@@ -7,6 +7,7 @@ import com.usage.dagger.daggerusage.data.AppDatabase;
 import com.usage.dagger.daggerusage.data.dao.NoteDao;
 import com.usage.dagger.daggerusage.data.mappers.NoteMapper;
 import com.usage.dagger.daggerusage.data.repository.NoteRepository;
+import com.usage.dagger.daggerusage.domain.repository.INoteRepository;
 
 import javax.inject.Singleton;
 
@@ -40,7 +41,7 @@ public class DataModule {
 
     @Provides
     @Singleton
-    public NoteRepository provideNoteRepository(NoteDao noteDao, NoteMapper noteMapper) {
+    public INoteRepository provideNoteRepository(NoteDao noteDao, NoteMapper noteMapper) {
         return new NoteRepository(noteDao, noteMapper);
     }
 }

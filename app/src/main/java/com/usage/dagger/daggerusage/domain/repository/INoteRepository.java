@@ -8,11 +8,11 @@ public interface INoteRepository {
 
     List<NoteModel> getAll();
 
-    List<NoteModel> getOrderedByEditingDate(int offset, int limit);
+    List<NoteModel> getOrderedByEditingDate(int offset, int count);
 
-    List<NoteModel> getOrderedByPriority(int offset, int limit);
+    List<NoteModel> getOrderedByPriority(int offset, int count);
 
-    List<NoteModel> getCustomOrder(int offset, int limit);
+    List<NoteModel> getCustomOrder(int offset, int count);
 
     void insert(NoteModel note);
 
