@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DaggerUsage</string>
+
+    <string name="priority">Priority</string>
 </resources>

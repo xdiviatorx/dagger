@@ -6,6 +6,7 @@ import com.usage.dagger.daggerusage.domain.models.NoteModel;
 import com.usage.dagger.daggerusage.domain.repository.INoteRepository;
 
 import java.util.List;
+import java.util.Random;
 
 public class NoteRepository implements INoteRepository {
 
@@ -17,11 +18,13 @@ public class NoteRepository implements INoteRepository {
         this.noteMapper = noteMapper;
 
         // todo remove
+        Random random = new Random(321213132);
         if (noteDao.getAll().size() < 1000) {
             for (int i = 0; i < 1000; ++i) {
                 NoteModel note = new NoteModel();
                 note.setTitle("Note #" + i);
                 note.setText("My awesome note's text number #" + i);
+                note.setPriority(random.nextInt(5) + 1);
                 noteDao.insert(noteMapper.modelToEntity(note));
             }
         }

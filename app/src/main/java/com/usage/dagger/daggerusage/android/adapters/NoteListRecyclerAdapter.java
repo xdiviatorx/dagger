@@ -55,6 +55,7 @@ public class NoteListRecyclerAdapter extends RecyclerView.Adapter<NoteListRecycl
 
         @BindView(R.id.title) TextView title;
         @BindView(R.id.note) TextView note;
+        @BindView(R.id.priority) TextView priority;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class NoteListRecyclerAdapter extends RecyclerView.Adapter<NoteListRecycl
         void bind(NoteModel noteModel) {
             title.setText(noteModel.getTitle());
             note.setText(noteModel.getText());
+            priority.setText(String.valueOf(noteModel.getPriority()));
         }
     }
 }
