@@ -2,4 +2,8 @@
     <string name="app_name">DaggerUsage</string>
 
     <string name="priority">Priority</string>
+
+    <!-- SORTING -->
+    <string name="custom_sort">Custom sort</string>
+    <string name="priority_sort">Priority sort</string>
 </resources>

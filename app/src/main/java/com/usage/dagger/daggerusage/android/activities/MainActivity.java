@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.usage.dagger.daggerusage.R;
@@ -52,6 +54,25 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
     protected void onStart() {
         super.onStart();
         recyclerView.addOnScrollListener(scrollListener);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_note_list, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.custom_sort:
+                presenter.onCustomSortSelected();
+                return true;
+            case R.id.priority_sort:
+                presenter.onPrioritySortSelected();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
