@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.usage.dagger.daggerusage.R;
 import com.usage.dagger.daggerusage.android.App;
 import com.usage.dagger.daggerusage.android.adapters.NoteListRecyclerAdapter;
+import com.usage.dagger.daggerusage.android.listeners.RecyclerLinearScrollListener;
 import com.usage.dagger.daggerusage.domain.models.NoteModel;
 import com.usage.dagger.daggerusage.presentation.presenters.NoteListPresenter;
 import com.usage.dagger.daggerusage.presentation.views.NoteListView;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
 
     @Inject NoteListPresenter presenter;
     @Inject NoteListRecyclerAdapter adapter;
+    @Inject LinearLayoutManager layoutManager;
+    @Inject RecyclerLinearScrollListener scrollListener;
 
     @BindView(R.id.recycler) RecyclerView recyclerView;
 
@@ -34,9 +37,10 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
         ButterKnife.bind(this);
         App.getApp().getAppComponent().inject(this);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        presenter.onNewPageRequested();
+
+        presenter.onNewPageNeeded();
     }
 
     @Inject
@@ -45,7 +49,13 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
     }
 
     @Override
-    public void clearList() {
+    protected void onStart() {
+        super.onStart();
+        recyclerView.addOnScrollListener(scrollListener);
+    }
+
+    @Override
+    public void removeDataFromList() {
         adapter.clearNotes();
     }
 
@@ -58,5 +68,11 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
     @Override
     public void showError() {
         Toast.makeText(this, "WTF!!!!!", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        recyclerView.removeOnScrollListener(scrollListener);
     }
 }

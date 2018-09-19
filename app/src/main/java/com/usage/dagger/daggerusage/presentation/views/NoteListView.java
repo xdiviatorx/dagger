@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface NoteListView {
 
-    void clearList();
+    void removeDataFromList();
 
     void showNewNotesPage(List<NoteModel> notes);
 

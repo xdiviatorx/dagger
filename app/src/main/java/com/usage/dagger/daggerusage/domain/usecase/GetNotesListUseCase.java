@@ -22,7 +22,10 @@ public class GetNotesListUseCase {
 
     public void requestNewPage(Callback callback) {
         try {
-            callback.onNewPageRetrieved(getNewPage());
+            List<NoteModel> newPage = getNewPage();
+            if (newPage.size() != 0) {
+                callback.onNewPageRetrieved(newPage);
+            }
         } catch (Exception e) {
             callback.onRetrieveNewPageFailed(e);
         }
@@ -33,7 +36,10 @@ public class GetNotesListUseCase {
             this.noteSortType = noteSortType;
             pagination.flushOffset();
             try {
-                callback.onFirstPageRetrieved(getNewPage());
+                List<NoteModel> newPage = getNewPage();
+                if (newPage.size() != 0) {
+                    callback.onFirstPageRetrieved(newPage);
+                }
             } catch (Exception e) {
                 callback.onRetrieveNewPageFailed(e);
             }

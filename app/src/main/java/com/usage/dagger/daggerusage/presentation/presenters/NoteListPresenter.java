@@ -7,7 +7,7 @@ import com.usage.dagger.daggerusage.presentation.views.NoteListView;
 
 import java.util.List;
 
-public class NoteListPresenter implements GetNotesListUseCase.Callback {
+public class NoteListPresenter implements GetNotesListUseCase.Callback, PaginationPresenter {
 
     private NoteListView view;
     private GetNotesListUseCase getNotesListUseCase;
@@ -32,13 +32,14 @@ public class NoteListPresenter implements GetNotesListUseCase.Callback {
         getNotesListUseCase.onSortTypeChanged(NoteSortType.DATE, this);
     }
 
-    public void onNewPageRequested() {
+    @Override
+    public void onNewPageNeeded() {
         getNotesListUseCase.requestNewPage(this);
     }
 
     @Override
     public void onFirstPageRetrieved(List<NoteModel> notes) {
-        view.clearList();
+        view.removeDataFromList();
         view.showNewNotesPage(notes);
     }
 
