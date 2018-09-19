@@ -30,7 +30,7 @@ public class NoteListRecyclerAdapter extends RecyclerView.Adapter<NoteListRecycl
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(R.layout.item_note, parent));
+        return new ViewHolder(inflater.inflate(R.layout.item_note, parent, false));
     }
 
     @Override
