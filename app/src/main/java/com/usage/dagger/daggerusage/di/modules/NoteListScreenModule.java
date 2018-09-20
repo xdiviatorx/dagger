@@ -8,6 +8,7 @@ import com.usage.dagger.daggerusage.android.adapters.NoteListRecyclerAdapter;
 import com.usage.dagger.daggerusage.android.listeners.RecyclerLinearScrollListener;
 import com.usage.dagger.daggerusage.domain.Const;
 import com.usage.dagger.daggerusage.domain.entities.Pagination;
+import com.usage.dagger.daggerusage.domain.entities.TypeSortedNotesRetriever;
 import com.usage.dagger.daggerusage.domain.models.NoteModel;
 import com.usage.dagger.daggerusage.domain.models.NoteSortType;
 import com.usage.dagger.daggerusage.domain.repository.INoteRepository;
@@ -24,9 +25,15 @@ public class NoteListScreenModule {
 
     @Provides
     @Singleton
-    public GetNotesListUseCase provideGetNoteListUseCase(INoteRepository noteRepository,
+    public TypeSortedNotesRetriever provideTypeSortedNoteListRetriever(INoteRepository noteRepository) {
+        return new TypeSortedNotesRetriever(noteRepository, NoteSortType.CUSTOM);
+    }
+
+    @Provides
+    @Singleton
+    public GetNotesListUseCase provideGetNoteListUseCase(TypeSortedNotesRetriever notesRetriever,
                                                          Pagination<NoteModel> pagination) {
-        return new GetNotesListUseCase(noteRepository, pagination, NoteSortType.CUSTOM);
+        return new GetNotesListUseCase(notesRetriever, pagination);
     }
 
     @Provides

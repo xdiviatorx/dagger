@@ -13,19 +13,19 @@ public class Pagination<Model> {
         this.offset = 0;
     }
 
-    public int getOffset() {
+    public int offset() {
         return offset;
     }
 
-    public int getCount() {
+    public int count() {
         return pageSize;
     }
 
-    public void updateOffset(List<Model> page) {
+    public void update(List<Model> page) {
         this.offset += page.size();
     }
 
-    public void flushOffset() {
+    public void flush() {
         this.offset = 0;
     }
 }
