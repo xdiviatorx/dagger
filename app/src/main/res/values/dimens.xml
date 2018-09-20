@@ -8,6 +8,7 @@
     <dimen name="h6">14sp</dimen>
     <dimen name="h7">12sp</dimen>
 
+    <dimen name="nano">2dp</dimen>
     <dimen name="micro">4dp</dimen>
     <dimen name="small">8dp</dimen>
     <dimen name="semi_medium">12dp</dimen>

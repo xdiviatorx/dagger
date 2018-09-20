@@ -29,11 +29,11 @@ public class PriorityText extends AppCompatTextView {
                 setText(R.string.urgent_and_important);
                 break;
             case IMPORTANT_NOT_URGENT:
-                setTextColor(ContextCompat.getColor(getContext(), R.color.orange));
+                setTextColor(ContextCompat.getColor(getContext(), R.color.orange_700));
                 setText(R.string.important_not_urgent);
                 break;
             case URGENT_NOT_IMPORTANT:
-                setTextColor(ContextCompat.getColor(getContext(), R.color.lime_200));
+                setTextColor(ContextCompat.getColor(getContext(), R.color.amber_600));
                 setText(R.string.urgent_not_important);
                 break;
             case NOT_URGENT_NOT_IMPORTANT:

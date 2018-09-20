@@ -27,10 +27,10 @@ public class PriorityView extends View {
                 setBackgroundResource(R.color.red_700);
                 break;
             case IMPORTANT_NOT_URGENT:
-                setBackgroundResource(R.color.orange);
+                setBackgroundResource(R.color.orange_700);
                 break;
             case URGENT_NOT_IMPORTANT:
-                setBackgroundResource(R.color.lime_200);
+                setBackgroundResource(R.color.amber_600);
                 break;
             case NOT_URGENT_NOT_IMPORTANT:
                 setBackgroundResource(R.color.green_400);
