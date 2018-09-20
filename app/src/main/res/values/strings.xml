@@ -6,4 +6,10 @@
     <!-- SORTING -->
     <string name="custom_sort">Custom sort</string>
     <string name="priority_sort">Priority sort</string>
+
+    <!-- PRIORITY -->
+    <string name="urgent_and_important">Urgent &amp; Important</string>
+    <string name="important_not_urgent">Important Not Urgent</string>
+    <string name="urgent_not_important">Urgent Not Important</string>
+    <string name="not_urgent_not_important">Not Urgent Not Important</string>
 </resources>

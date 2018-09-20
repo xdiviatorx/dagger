@@ -1,13 +1,15 @@
 package com.usage.dagger.daggerusage.domain.models;
 
+import java.util.Date;
+
 public class NoteModel {
 
     private int id;
 
     private String title;
     private String text;
-    private long editingDate;
-    private int priority;
+    private Date editingDate;
+    private NotePriority priority;
     private int orderNumber;
 
     public int getId() {
@@ -34,19 +36,19 @@ public class NoteModel {
         this.text = text;
     }
 
-    public long getEditingDate() {
+    public Date getEditingDate() {
         return editingDate;
     }
 
-    public void setEditingDate(long editingDate) {
+    public void setEditingDate(Date editingDate) {
         this.editingDate = editingDate;
     }
 
-    public int getPriority() {
+    public NotePriority getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(NotePriority priority) {
         this.priority = priority;
     }
 

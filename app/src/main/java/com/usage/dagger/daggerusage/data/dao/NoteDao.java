@@ -22,7 +22,7 @@ public interface NoteDao {
     @Query("select * from note order by note.priority limit :offset, :count")
     List<Note> getOrderedByPriority(int offset, int count);
 
-    @Query("select * from note order by note.editingDate desc limit :offset, :count")
+    @Query("select * from note order by note.orderNumber limit :offset, :count")
     List<Note> getCustomOrder(int offset, int count);
 
     @Insert

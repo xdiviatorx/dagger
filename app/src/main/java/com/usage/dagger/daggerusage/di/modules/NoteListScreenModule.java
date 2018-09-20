@@ -15,6 +15,10 @@ import com.usage.dagger.daggerusage.domain.repository.INoteRepository;
 import com.usage.dagger.daggerusage.domain.usecase.GetNotesListUseCase;
 import com.usage.dagger.daggerusage.presentation.presenters.NoteListPresenter;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -49,9 +53,14 @@ public class NoteListScreenModule {
     }
 
     @Provides
+    public DateFormat provideDateFormat() {
+        return new SimpleDateFormat(Const.DATE_FORMAT_PATTERN, Locale.getDefault());
+    }
+
+    @Provides
     @Singleton
-    public NoteListRecyclerAdapter provideNoteListRecyclerAdapter(LayoutInflater inflater) {
-        return new NoteListRecyclerAdapter(inflater);
+    public NoteListRecyclerAdapter provideNoteListRecyclerAdapter(LayoutInflater inflater, DateFormat dateFormat) {
+        return new NoteListRecyclerAdapter(inflater, dateFormat);
     }
 
     @Provides

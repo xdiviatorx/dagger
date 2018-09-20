@@ -2,9 +2,12 @@ package com.usage.dagger.daggerusage.data.repository;
 
 import com.usage.dagger.daggerusage.data.dao.NoteDao;
 import com.usage.dagger.daggerusage.data.mappers.NoteMapper;
+import com.usage.dagger.daggerusage.domain.Const;
 import com.usage.dagger.daggerusage.domain.models.NoteModel;
+import com.usage.dagger.daggerusage.domain.models.NotePriority;
 import com.usage.dagger.daggerusage.domain.repository.INoteRepository;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -23,8 +26,9 @@ public class NoteRepository implements INoteRepository {
             for (int i = 0; i < 1000; ++i) {
                 NoteModel note = new NoteModel();
                 note.setTitle("Note #" + i);
-                note.setText("My awesome note's text number #" + i);
-                note.setPriority(random.nextInt(5) + 1);
+                note.setText(Const.LOREM_IPSUM);
+                note.setPriority(NotePriority.valueOf(random.nextInt(4) + 1));
+                note.setEditingDate(new Date(System.currentTimeMillis() + (random.nextInt(100) - 50) * 1000 * 60));
                 noteDao.insert(noteMapper.modelToEntity(note));
             }
         }
