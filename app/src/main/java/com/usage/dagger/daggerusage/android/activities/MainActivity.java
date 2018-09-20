@@ -73,6 +73,9 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
             case R.id.priority_sort:
                 presenter.onPrioritySortSelected();
                 return true;
+            case R.id.editing_date_sort:
+                presenter.onEditingDateSortSelected();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

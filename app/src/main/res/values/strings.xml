@@ -6,6 +6,7 @@
     <!-- SORTING -->
     <string name="custom_sort">Custom sort</string>
     <string name="priority_sort">Priority sort</string>
+    <string name="editing_date_sort">Editing date sort</string>
 
     <!-- PRIORITY -->
     <string name="urgent_and_important">Urgent &amp; Important</string>

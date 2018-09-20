@@ -9,4 +9,8 @@
         android:id="@+id/priority_sort"
         android:title="@string/priority_sort" />
 
+    <item
+        android:id="@+id/editing_date_sort"
+        android:title="@string/editing_date_sort" />
+
 </menu>
