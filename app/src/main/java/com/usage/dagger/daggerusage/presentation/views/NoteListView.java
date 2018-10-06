@@ -12,5 +12,5 @@ public interface NoteListView {
 
     void showError();
 
-    void showAddNoteScreen();
+    void showCreateNoteScreen();
 }

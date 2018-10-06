@@ -54,6 +54,6 @@ public class NoteListPresenter implements GetNotesListUseCase.Callback, Paginati
     }
 
     public void onAddButtonClicked() {
-        view.showAddNoteScreen();
+        view.showCreateNoteScreen();
     }
 }

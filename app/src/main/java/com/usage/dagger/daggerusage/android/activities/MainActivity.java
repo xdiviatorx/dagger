@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
     }
 
     @Override
-    public void showAddNoteScreen() {
+    public void showCreateNoteScreen() {
         startActivity(NoteCreateActivity.newIntent(getApplicationContext()));
     }
 
