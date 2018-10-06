@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
 
     @Override
     public void showAddNoteScreen() {
-        startActivity(AddNoteActivity.newIntent(getApplicationContext()));
+        startActivity(NoteCreateActivity.newIntent(getApplicationContext()));
     }
 
     @Override

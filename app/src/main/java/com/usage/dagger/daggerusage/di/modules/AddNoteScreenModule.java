@@ -3,7 +3,7 @@ package com.usage.dagger.daggerusage.di.modules;
 import com.usage.dagger.daggerusage.domain.models.NoteModel;
 import com.usage.dagger.daggerusage.domain.repository.INoteRepository;
 import com.usage.dagger.daggerusage.domain.usecase.AddNoteUseCase;
-import com.usage.dagger.daggerusage.presentation.presenters.AddNotePresenter;
+import com.usage.dagger.daggerusage.presentation.presenters.NoteCreatePresenter;
 
 import javax.inject.Singleton;
 
@@ -14,8 +14,8 @@ import dagger.Provides;
 public class AddNoteScreenModule {
 
     @Provides
-    public AddNotePresenter provideAddNotePresenter(AddNoteUseCase addNoteUseCase, NoteModel noteModel) {
-        return new AddNotePresenter(addNoteUseCase, noteModel);
+    public NoteCreatePresenter provideAddNotePresenter(AddNoteUseCase addNoteUseCase, NoteModel noteModel) {
+        return new NoteCreatePresenter(addNoteUseCase, noteModel);
     }
 
     @Provides

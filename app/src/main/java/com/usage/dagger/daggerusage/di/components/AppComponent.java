@@ -1,6 +1,6 @@
 package com.usage.dagger.daggerusage.di.components;
 
-import com.usage.dagger.daggerusage.android.activities.AddNoteActivity;
+import com.usage.dagger.daggerusage.android.activities.NoteCreateActivity;
 import com.usage.dagger.daggerusage.android.activities.MainActivity;
 import com.usage.dagger.daggerusage.di.modules.AddNoteScreenModule;
 import com.usage.dagger.daggerusage.di.modules.AppModule;
@@ -16,5 +16,5 @@ import dagger.Component;
 @Singleton
 public interface AppComponent {
     void inject(MainActivity mainActivity);
-    void inject(AddNoteActivity addNoteActivity);
+    void inject(NoteCreateActivity noteCreateActivity);
 }

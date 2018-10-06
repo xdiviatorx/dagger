@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".android.activities.AddNoteActivity">
+    tools:context=".android.activities.NoteCreateActivity">
 
     <EditText
         android:id="@+id/note_title_input"

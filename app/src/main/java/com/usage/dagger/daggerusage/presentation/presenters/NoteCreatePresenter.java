@@ -3,33 +3,24 @@ package com.usage.dagger.daggerusage.presentation.presenters;
 import com.usage.dagger.daggerusage.domain.models.NoteModel;
 import com.usage.dagger.daggerusage.domain.models.NotePriority;
 import com.usage.dagger.daggerusage.domain.usecase.AddNoteUseCase;
-import com.usage.dagger.daggerusage.presentation.views.AddNoteView;
+import com.usage.dagger.daggerusage.presentation.contracts.NoteCreateContract;
 
 import java.util.Date;
 
-public class AddNotePresenter {
+public class NoteCreatePresenter extends NoteModifyPresenter<NoteCreateContract.View>
+        implements NoteCreateContract.Presenter {
 
     private final AddNoteUseCase addNoteUseCase;
     private NoteModel noteModel;
-    private AddNoteView view;
+    private NoteCreateContract.View view;
 
-    public AddNotePresenter(AddNoteUseCase addNoteUseCase, NoteModel noteModel) {
+    public NoteCreatePresenter(AddNoteUseCase addNoteUseCase, NoteModel noteModel) {
+        super(noteModel);
         this.addNoteUseCase = addNoteUseCase;
         this.noteModel = noteModel;
     }
 
-    public void attachView(AddNoteView view) {
-        this.view = view;
-    }
-
-    public void onNoteTitleChanged(String title) {
-        noteModel.setTitle(title);
-    }
-
-    public void onNoteTextChanged(String text) {
-        noteModel.setText(text);
-    }
-
+    @Override
     public void onSaveRequested() {
         noteModel.setPriority(NotePriority.URGENT_AND_IMPORTANT);
         noteModel.setEditingDate(new Date());
@@ -37,7 +28,17 @@ public class AddNotePresenter {
         view.showPreviousPage();
     }
 
-    public void onDiscardRequested() {
-        view.showPreviousPage();
+    public void attachView(NoteCreateContract.View view) {
+        this.view = view;
+    }
+
+    @Override
+    public void detachView() {
+        this.view = null;
+    }
+
+    @Override
+    protected NoteCreateContract.View getView() {
+        return view;
     }
 }
