@@ -23,6 +23,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements NoteListView {
 
@@ -97,8 +98,18 @@ public class MainActivity extends AppCompatActivity implements NoteListView {
     }
 
     @Override
+    public void showAddNoteScreen() {
+        startActivity(AddNoteActivity.newIntent(getApplicationContext()));
+    }
+
+    @Override
     protected void onStop() {
         super.onStop();
         recyclerView.removeOnScrollListener(scrollListener);
+    }
+
+    @OnClick(R.id.add_note_button)
+    public void onAddNoteButtonClick() {
+        presenter.onAddButtonClicked();
     }
 }

@@ -11,4 +11,6 @@ public interface NoteListView {
     void showNewNotesPage(List<NoteModel> notes);
 
     void showError();
+
+    void showAddNoteScreen();
 }

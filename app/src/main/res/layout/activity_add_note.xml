@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".android.activities.AddNoteActivity">
+
+    <EditText
+        android:id="@+id/note_title_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/medium"
+        android:layout_marginStart="@dimen/medium"
+        android:layout_marginTop="@dimen/medium"
+        android:background="@android:color/transparent"
+        android:hint="@string/note_title_hint"
+        android:textColor="@color/gray_800"
+        android:textColorHint="@color/gray_600"
+        android:textSize="@dimen/h3"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/note_text_input"
+        android:layout_width="match_parent"
+        android:minHeight="@dimen/note_editor_min_height"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/medium"
+        android:layout_marginStart="@dimen/medium"
+        android:layout_marginTop="@dimen/medium"
+        android:background="@android:color/transparent"
+        android:textColor="@color/gray_600"
+        android:textColorHint="@color/gray_400"
+        android:textSize="@dimen/h5"
+        android:gravity="top"
+        android:hint="@string/note_text_hint"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_title_input" />
+
+</android.support.constraint.ConstraintLayout>

@@ -13,4 +13,9 @@
     <string name="important_not_urgent">Important Not Urgent</string>
     <string name="urgent_not_important">Urgent Not Important</string>
     <string name="not_urgent_not_important">Not Urgent Not Important</string>
+
+    <!-- NOTE -->
+    <string name="note_title_hint">Note Title</string>
+    <string name="note_text_hint">Type your note here…</string>
+    <string name="save">Save</string>
 </resources>

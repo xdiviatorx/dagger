@@ -15,4 +15,6 @@
     <dimen name="medium">16dp</dimen>
     <dimen name="semi_large">24dp</dimen>
     <dimen name="large">32dp</dimen>
+
+    <dimen name="note_editor_min_height">64dp</dimen>
 </resources>
